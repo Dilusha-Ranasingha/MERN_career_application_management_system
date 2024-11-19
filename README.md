@@ -1,5 +1,7 @@
 # PoojaIndians-Career Application Management System
 
+![Home Page Screenshot](./assets/PoojaIndean-CareetApplicationManagement.png)
+
 A MERN stack web application that streamlines the job application process for users. This platform enables users to apply for job vacancies, manage their applications, track progress, and utilize various features designed for an efficient and user-friendly experience.
 
 ---
