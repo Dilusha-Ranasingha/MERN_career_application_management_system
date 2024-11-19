@@ -7,107 +7,252 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import CardActionArea from '@mui/material/CardActionArea';
 import CardActions from '@mui/material/CardActions';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+import { styled } from '@mui/system';
 
-function CustomCard({ title, description, image, alt }) {
+const CustomCard = ({ title, description, image, alt }) => {
   const navigate = useNavigate();
   return (
-    <Card sx={{ maxWidth: 345, marginTop:10,}}>
+    <Card
+      sx={{
+        maxWidth: 345,
+        margin: 2,
+        borderRadius: 2,
+        boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)',
+        transition: 'transform 0.3s, box-shadow 0.3s',
+        '&:hover': {
+          transform: 'scale(1.05)',
+          boxShadow: '0 6px 15px rgba(0, 0, 0, 0.3)',
+        },
+      }}
+    >
       <CardActionArea>
-        <CardMedia
-          component="img"
-          height="140"
-          image={image}
-          alt={alt}
-        />
+        <CardMedia component="img" height="180" image={image} alt={alt} />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography
+            gutterBottom
+            variant="h6"
+            component="div"
+            sx={{
+              fontWeight: 600,
+              color: '#1976d2',
+              textAlign: 'center',
+            }}
+          >
             {title}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
+          <Typography
+            variant="body2"
+            color="text.secondary"
+            sx={{
+              textAlign: 'right', // Align text to the right
+              fontSize: '0.95rem',
+              lineHeight: 1.5,
+            }}
+          >
             {description}
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary" onClick={() => navigate('/users')} >
-          Apply
+        <Button
+          size="medium"
+          variant="contained"
+          color="primary"
+          fullWidth
+          onClick={() => navigate('/users')}
+          sx={{
+            textTransform: 'none',
+            fontWeight: 'bold',
+          }}
+        >
+          Apply Now
         </Button>
       </CardActions>
     </Card>
   );
-}
+};
 
-function UserPosters() {
+const StyledTypography = styled(Typography)(({ theme }) => ({
+  marginTop: theme.spacing(2),
+  fontWeight: 700,
+  fontSize: '2.5rem',
+  color: '#ffffff',
+  textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
+}));
+
+const UserPosters = () => {
   return (
-    <div
-    style={{
+    <Box
+      sx={{
         position: 'relative',
-        backgroundImage: `url('https://img.freepik.com/free-vector/restaurant-mural-wallpaper-concept_23-2148671800.jpg')`,
+        backgroundImage: `url('https://img.freepik.com/free-vector/gradient-dark-dynamic-lines-background_23-2148995950.jpg?w=360')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
         minHeight: '100vh',
-        padding: '50px 20px', // Added padding to avoid content touching edges
+        padding: '50px 20px',
         display: 'flex',
         flexDirection: 'column',
+        alignItems: 'center',
         justifyContent: 'center',
-    }}
+        gap: 4,
+      }}
     >
-        <Typography variant="h4" align="center" style={{ marginTop: 60, color: '#2196f3' }}>
-          Available Job Vacancies
-        </Typography>
-      <div style={{ display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap', margin: 50, marginTop: 75, }}>
-        <CustomCard 
-          title="Senior Chef"
-          description="Join our dynamic culinary team as a Senior Chef, where you'll lead kitchen operations, 
-                      supervise staff, and ensure high-quality food production. As a Senior Chef, you'll bring creativity to 
-                      menu development and maintain kitchen standards for safety and cleanliness. This position offers a competitive
-                      salary starting at $60,000 annually, with potential for bonuses based on performance. Benefits include health 
-                      insurance, paid time off,and opportunities for professional development through workshops and training programs."
-          image="https://img.freepik.com/free-photo/man-chef-cooking-asian-chicken-cafe-kitchen_1303-32155.jpg"
-          alt="Senior Chef"
-        />
-        <CustomCard 
-          title="Delivery boy"
-          description="Become a vital part of our team as a Delivery Boy, responsible for timely and accurate deliveries 
-                      to our valued customers. You'll navigate routes efficiently and provide exceptional customer service. This role 
-                      offers a starting salary of $25,000 per year, along with tips and mileage reimbursement. Benefits 
-                      include flexible scheduling, employee discounts, and opportunities for advancement within the company."
-          image="https://media.istockphoto.com/id/1190668042/photo/man-delivering-food-by-bike-in-the-city.jpg?s=612x612&w=0&k=20&c=8ntP-Gfp-3-AiUwOC1uHB805iB-jNpfzN2zoum-Vw5I="
-          alt="Delivery boy"
-        />
-        <CustomCard 
-          title="Receptionist"
-          description="Join our welcoming team as a Receptionist, where you'll be the first point of
-                      contact for our guests, handling inquiries and reservations with professionalism and efficiency. 
-                      Your role will also include administrative tasks to support daily operations. We offer a competitive salary
-                      of $35,000 annually, along with health benefits,
-                      retirement plans, and opportunities for career growth within our organization."
-          image="https://nationaltoday.com/wp-content/uploads/2021/05/Receptionists.jpg"
-          alt="Receptionist"
-        />
-        <CustomCard 
-          title="waiter"
-          description="Embark on a rewarding career as a Waiter, where you'll
-                      provide exceptional dining experiences to our guests by taking orders, serving meals, and ensuring 
-                      customer satisfaction. This role offers a starting salary of $28,000 per year, plus tips. Additional
-                      benefits include flexible scheduling, 
-                      employee meals, and opportunities for advancement into supervisory positions."
-          image="https://inspire.qa/wp-content/uploads/2024/01/profesional-waiter-in-restaurant-e1706520489906.jpg"
-          alt="waiter"
-        />
-        <CustomCard 
-          title="Finance Manager"
-          description="Lead our finance team as a Finance Manager, overseeing budgeting, 
-                      financial reporting, and strategic planning to ensure the financial health of our organization. 
-                      This role offers a competitive salary of $80,000 annually, along with performance-based bonuses and 
-                      stock options. Benefits include health insurance, retirement plans,
-                      and opportunities for continued education and professional development."
-          image="https://www.mitacs.ca/wp-content/uploads/2022/03/MANINNOVATION-SUB-PAGE_FINANCEMGR_IMAGE1_iStock-968943368.jpg"
-          alt="Finance Manager"
-        />
-      </div>
-    </div>
+      <StyledTypography align="center">Available Job Vacancies</StyledTypography>
+      <Grid
+        container
+        spacing={4}
+        sx={{
+          justifyContent: 'center',
+          alignItems: 'flex-start',
+        }}
+      >
+        <Grid item>
+          <CustomCard
+            title="Senior Chef"
+            description={
+              <>
+                <ul style={{ textAlign: 'left' }}>
+                  <li>
+                    <b>Role:</b> Lead kitchen operations and supervise staff.
+                  </li>
+                  <li>
+                    <b>Key Responsibilities:</b> Create innovative menus and
+                    maintain quality standards.
+                  </li>
+                  <li>
+                    <b>Safety:</b> Ensure kitchen cleanliness and adhere to
+                    safety protocols.
+                  </li>
+                  <li>
+                    <b>Salary:</b> $60,000 annually + bonuses.
+                  </li>
+                  <li>
+                    <b>Benefits:</b> Health insurance, paid time off, and
+                    professional development.
+                  </li>
+                </ul>
+              </>
+            }
+            image="https://img.freepik.com/free-photo/man-chef-cooking-asian-chicken-cafe-kitchen_1303-32155.jpg"
+            alt="Senior Chef"
+          />
+        </Grid>
+        <Grid item>
+          <CustomCard
+            title="Delivery Boy"
+            description={
+              <>
+                <ul style={{ textAlign: 'left' }}>
+                  <li>
+                    <b>Role:</b> Timely and accurate deliveries to customers.
+                  </li>
+                  <li>
+                    <b>Key Responsibilities:</b> Navigate delivery routes
+                    efficiently and provide exceptional customer service.
+                  </li>
+                  <li>
+                    <b>Salary:</b> $25,000 per year + tips and mileage
+                    reimbursement.
+                  </li>
+                  <li>
+                    <b>Benefits:</b> Flexible scheduling and employee
+                    discounts.
+                  </li>
+                </ul>
+              </>
+            }
+            image="https://media.istockphoto.com/id/1190668042/photo/man-delivering-food-by-bike-in-the-city.jpg?s=612x612&w=0&k=20&c=8ntP-Gfp-3-AiUwOC1uHB805iB-jNpfzN2zoum-Vw5I="
+            alt="Delivery Boy"
+          />
+        </Grid>
+        <Grid item>
+          <CustomCard
+            title="Receptionist"
+            description={
+              <>
+                <ul style={{ textAlign: 'left' }}>
+                  <li>
+                    <b>Role:</b> Serve as the first point of contact for guests
+                    and handle inquiries professionally.
+                  </li>
+                  <li>
+                    <b>Key Responsibilities:</b> Manage reservations and
+                    perform administrative tasks.
+                  </li>
+                  <li>
+                    <b>Salary:</b> $35,000 annually + health benefits.
+                  </li>
+                  <li>
+                    <b>Growth:</b> Opportunities within the organization.
+                  </li>
+                </ul>
+              </>
+            }
+            image="https://nationaltoday.com/wp-content/uploads/2021/05/Receptionists.jpg"
+            alt="Receptionist"
+          />
+        </Grid>
+        <Grid item>
+          <CustomCard
+            title="Waiter"
+            description={
+              <>
+                <ul style={{ textAlign: 'left' }}>
+                  <li>
+                    <b>Role:</b> Provide exceptional dining experiences by
+                    taking orders and serving meals.
+                  </li>
+                  <li>
+                    <b>Key Responsibilities:</b> Ensure customer satisfaction
+                    and handle requests.
+                  </li>
+                  <li>
+                    <b>Salary:</b> $28,000 annually + tips.
+                  </li>
+                  <li>
+                    <b>Benefits:</b> Flexible scheduling and employee meals.
+                  </li>
+                </ul>
+              </>
+            }
+            image="https://inspire.qa/wp-content/uploads/2024/01/profesional-waiter-in-restaurant-e1706520489906.jpg"
+            alt="Waiter"
+          />
+        </Grid>
+        <Grid item>
+          <CustomCard
+            title="Finance Manager"
+            description={
+              <>
+                <ul style={{ textAlign: 'left' }}>
+                  <li>
+                    <b>Role:</b> Oversee budgeting, financial reporting, and
+                    strategic planning.
+                  </li>
+                  <li>
+                    <b>Key Responsibilities:</b> Ensure the financial health of
+                    the organization.
+                  </li>
+                  <li>
+                    <b>Salary:</b> $80,000 annually + bonuses.
+                  </li>
+                  <li>
+                    <b>Benefits:</b> Health insurance and opportunities for
+                    professional growth.
+                  </li>
+                </ul>
+              </>
+            }
+            image="https://www.mitacs.ca/wp-content/uploads/2022/03/MANINNOVATION-SUB-PAGE_FINANCEMGR_IMAGE1_iStock-968943368.jpg"
+            alt="Finance Manager"
+          />
+        </Grid>
+      </Grid>
+    </Box>
   );
-}
+};
 
 export default UserPosters;
