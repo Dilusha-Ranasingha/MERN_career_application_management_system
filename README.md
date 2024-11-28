@@ -53,10 +53,11 @@ Ensure you have the following installed on your system:
     npm start
 
 ## 🧰 Languages and Tools:
+<p align="left">
 <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="React" width="50" height="50">
 <img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Expressjs.png" alt="Express.js" width="100" height="50">  
 <img src="https://nodejs.org/static/images/logo.svg" alt="Node.js" width="50" height="50">
 <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg" alt="Visual Studio Code" width="50" height="50">  
 <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="Postman" width="50" height="50">
 <img src="https://www.vectorlogo.zone/logos/mongodb/mongodb-ar21.svg" alt="MongoDB" width="100" height="50">
-
+</p>
